@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorCustomerPrimary">#4CAF50</color>
+    <color name="colorCustomerPrimaryDark">#388E3C</color>
+    <color name="colorCustomerPrimaryLight">#C8E6C9</color>
+    <color name="customerAccent">#FF9800</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="colorCustomerBtnTransparent">#40000000</color>
+
+
+    <color name="colorBusinessPrimary">#2196F3</color>
+    <color name="colorBusinessPrimaryDark">#1976D2</color>
+    <color name="colorBusinessPrimaryLight">#BBDEFB</color>
+    <color name="businessAccent">#FF5722</color>
+
+</resources>

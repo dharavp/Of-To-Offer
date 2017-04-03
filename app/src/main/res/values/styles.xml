@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="CustomerAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorCustomerPrimary</item>
+        <item name="colorPrimaryDark">@color/colorCustomerPrimaryDark</item>
+        <item name="colorAccent">@color/customerAccent</item>
+    </style>
+
+    <style name="BusinessAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBusinessPrimary</item>
+        <item name="colorPrimaryDark">@color/colorBusinessPrimaryDark</item>
+        <item name="colorAccent">@color/businessAccent</item>
+    </style>
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/divider</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+    </style>
+
+    <style name="hintText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+</resources>

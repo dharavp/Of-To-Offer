@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="userRegister"
+            type="com.oftooffer.Models.UserRegister" />
+    </data>
+
+    <io.codetail.widget.RevealFrameLayout
+        android:id="@+id/linear_layout_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorCustomerPrimary">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/revealiew"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBusinessPrimaryDark"
+            android:orientation="vertical"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{userRegister.userTitle}"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <io.ghyeok.stickyswitch.widget.StickySwitch
+                    android:id="@+id/sticky_switch"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:iconPadding="14dp"
+                    app:iconSize="22dp"
+                    app:leftIcon="@drawable/ic_people_black"
+                    app:leftText="Customer"
+                    app:rightIcon="@drawable/ic_domain_black"
+                    app:rightText="Business"
+                    app:selectedTextSize="12sp"
+                    app:sliderBackgroundColor="@color/colorCustomerBtnTransparent"
+                    app:switchColor="@color/customerAccent"
+                    app:textColor="@color/white"
+                    app:textSize="12sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@color/white">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_name_hint"
+                        android:inputType="text"
+                        android:text="@={userRegister.userName}"
+                        android:textColor="@color/white"
+                        android:theme="@style/EditTextTheme" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@color/white">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_user_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_email_hint"
+                        android:inputType="textEmailAddress"
+                        android:text="@={userRegister.userEmail}"
+                        android:textColor="@color/white"
+                        android:theme="@style/EditTextTheme" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/edit_password_hint"
+                    android:textColorHint="@color/white"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="8"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/white">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edit_user_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLength="8"
+                        android:text="@={userRegister.userPass}"
+                        android:textColor="@color/white"
+                        android:theme="@style/EditTextTheme" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/button_sign_up"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/colorCustomerBtnTransparent"
+                    android:text="@string/button_register_user"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </io.codetail.widget.RevealFrameLayout>
+</layout>
