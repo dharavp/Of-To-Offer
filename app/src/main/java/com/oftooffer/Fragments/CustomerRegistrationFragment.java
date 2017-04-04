@@ -13,14 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.Toast;
-
 import com.oftooffer.Models.UserRegister;
 import com.oftooffer.R;
 import com.oftooffer.databinding.FragmentCustomerRegestrationBinding;
-
 import org.jetbrains.annotations.NotNull;
-
 import io.codetail.animation.ViewAnimationUtils;
 import io.ghyeok.stickyswitch.widget.StickySwitch;
 
@@ -32,6 +28,7 @@ public class CustomerRegistrationFragment extends Fragment {
 
     private UserRegister userRegister;
     FragmentCustomerRegestrationBinding mBinding;
+
 
     public CustomerRegistrationFragment() {
     }
@@ -49,6 +46,8 @@ public class CustomerRegistrationFragment extends Fragment {
 
         Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "font.ttf");
         mBinding.textTitle.setTypeface(face);
+        mBinding.stickySwitch.setLeftIcon(R.drawable.ic_people_black);
+        mBinding.stickySwitch.setRightIcon(R.drawable.ic_domain_black);
 
         mBinding.stickySwitch.setOnSelectedChangeListener(new StickySwitch.OnSelectedChangeListener() {
             @Override
@@ -65,23 +64,9 @@ public class CustomerRegistrationFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (mBinding.editUserName.getText().toString().isEmpty()) {
-                    Toast.makeText(getActivity(),"Enter username",Toast.LENGTH_SHORT).show();
-                }
-                else if(mBinding.editUserName.getText().length()>=10){
-                    Toast.makeText(getActivity(),"Invalid name",Toast.LENGTH_SHORT).show();
-                }
-
-
-                if (mBinding.editUserEmail.getText().toString().isEmpty()) {
-                    Toast.makeText(getActivity(),"Enter email",Toast.LENGTH_SHORT).show();
-                } else {
-                    if (!Patterns.EMAIL_ADDRESS.matcher(mBinding.editUserEmail.getText().toString()).matches()) {
-                        Toast.makeText(getActivity(),"Invalid email",Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-
+                checkValidName();
+                checkValidEmail();
+                checkValidPassword();
             }
         });
 
@@ -125,5 +110,42 @@ public class CustomerRegistrationFragment extends Fragment {
         anim.setDuration(1000);
         myView.setVisibility(View.VISIBLE);
         anim.start();
+    }
+
+    public void checkValidName() {
+        if (mBinding.editUserName.getText().toString().isEmpty()) {
+           // mBinding.editUserName.setError("Enter User name");
+            mBinding.inputLayoutName.setError("Enter User Name");
+        } else if (mBinding.editUserName.getText().length() >= 10) {
+
+            mBinding.inputLayoutName.setError("User name must be less than 10 character");
+        }
+        else {
+            mBinding.inputLayoutName.setError(null);
+        }
+    }
+
+    public void checkValidEmail() {
+
+        if (mBinding.editUserEmail.getText().toString().isEmpty()) {
+            mBinding.inputLayoutEmail.setError("Enter Email");
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(mBinding.editUserEmail.getText().toString()).matches()) {
+            mBinding.inputLayoutEmail.setError("Invalid Email");
+        }
+        else{
+            mBinding.inputLayoutEmail.setError(null);
+        }
+
+    }
+
+    public void checkValidPassword() {
+        if (mBinding.editUserPassword.getText().toString().isEmpty()) {
+            mBinding.inputLayoutPassword.setError("Enter Password");
+        } else if (mBinding.editUserPassword.getText().toString().length() != 8) {
+            mBinding.inputLayoutPassword.setError("Pass word must be equal to 8 character");
+        }
+        else{
+            mBinding.inputLayoutPassword.setError(null);
+        }
     }
 }

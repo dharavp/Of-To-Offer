@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorCustomerPrimary">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:id="@+id/revealiew"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -51,9 +51,7 @@
                     android:layout_gravity="center_horizontal"
                     app:iconPadding="14dp"
                     app:iconSize="22dp"
-                    app:leftIcon="@drawable/ic_people_black"
                     app:leftText="Customer"
-                    app:rightIcon="@drawable/ic_domain_black"
                     app:rightText="Business"
                     app:selectedTextSize="12sp"
                     app:sliderBackgroundColor="@color/colorCustomerBtnTransparent"
@@ -66,6 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    app:errorEnabled="true"
                     android:textColorHint="@color/white">
 
                     <android.support.v7.widget.AppCompatEditText
@@ -85,6 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    app:errorEnabled="true"
                     android:textColorHint="@color/white">
 
                     <android.support.v7.widget.AppCompatEditText
@@ -104,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_password_hint"
+                    app:errorEnabled="true"
                     android:textColorHint="@color/white"
                     app:counterEnabled="true"
                     app:counterMaxLength="8"
