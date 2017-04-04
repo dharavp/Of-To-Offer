@@ -10,6 +10,7 @@
     <color name="divider">#BDBDBD</color>
 
     <color name="colorCustomerBtnTransparent">#40000000</color>
+    <color name="colorLoginBtnTransparent">#1AFFFFFF</color>
 
 
     <color name="colorBusinessPrimary">#2196F3</color>

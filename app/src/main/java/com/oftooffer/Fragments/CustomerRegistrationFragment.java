@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,6 @@ public class CustomerRegistrationFragment extends Fragment {
     private UserRegister userRegister;
     FragmentCustomerRegestrationBinding mBinding;
 
-
     public CustomerRegistrationFragment() {
     }
 
@@ -44,7 +45,7 @@ public class CustomerRegistrationFragment extends Fragment {
         mBinding.setUserRegister(userRegister);
         View view = mBinding.getRoot();
 
-        Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "font.ttf");
+        final Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "font.ttf");
         mBinding.textTitle.setTypeface(face);
         mBinding.stickySwitch.setLeftIcon(R.drawable.ic_people_black);
         mBinding.stickySwitch.setRightIcon(R.drawable.ic_domain_black);
@@ -67,6 +68,64 @@ public class CustomerRegistrationFragment extends Fragment {
                 checkValidName();
                 checkValidEmail();
                 checkValidPassword();
+            }
+        });
+
+        mBinding.editUserName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if(s.length()>0) {
+
+                        mBinding.inputLayoutName.setErrorEnabled(false);
+                    }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        mBinding.editUserEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()>0) {
+                    mBinding.inputLayoutEmail.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mBinding.editUserPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()>0) {
+
+                    mBinding.inputLayoutPassword.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
@@ -114,38 +173,46 @@ public class CustomerRegistrationFragment extends Fragment {
 
     public void checkValidName() {
         if (mBinding.editUserName.getText().toString().isEmpty()) {
-           // mBinding.editUserName.setError("Enter User name");
-            mBinding.inputLayoutName.setError("Enter User Name");
+            mBinding.inputLayoutName.setErrorEnabled(true);
+            mBinding.inputLayoutName.setError(getResources().getString(R.string.error_enter_name));
         } else if (mBinding.editUserName.getText().length() >= 10) {
-
-            mBinding.inputLayoutName.setError("User name must be less than 10 character");
+            mBinding.inputLayoutName.setErrorEnabled(true);
+            mBinding.inputLayoutName.setError(getResources().getString(R.string.error_name));
         }
         else {
-            mBinding.inputLayoutName.setError(null);
+            mBinding.inputLayoutName.setErrorEnabled(false);
+           // mBinding.inputLayoutName.setError(null);
         }
     }
 
     public void checkValidEmail() {
 
         if (mBinding.editUserEmail.getText().toString().isEmpty()) {
-            mBinding.inputLayoutEmail.setError("Enter Email");
+            mBinding.inputLayoutEmail.setErrorEnabled(true);
+            mBinding.inputLayoutEmail.setError(getResources().getString(R.string.error_enter_email));
         } else if (!Patterns.EMAIL_ADDRESS.matcher(mBinding.editUserEmail.getText().toString()).matches()) {
-            mBinding.inputLayoutEmail.setError("Invalid Email");
+            mBinding.inputLayoutEmail.setErrorEnabled(true);
+            mBinding.inputLayoutEmail.setError(getResources().getString(R.string.error_email));
         }
         else{
-            mBinding.inputLayoutEmail.setError(null);
+            mBinding.inputLayoutEmail.setErrorEnabled(false);
+          //  mBinding.inputLayoutEmail.setError(null);
         }
 
     }
 
     public void checkValidPassword() {
         if (mBinding.editUserPassword.getText().toString().isEmpty()) {
-            mBinding.inputLayoutPassword.setError("Enter Password");
+            mBinding.inputLayoutPassword.setErrorEnabled(true);
+            mBinding.inputLayoutPassword.setError(getResources().getString(R.string.error_enter_password));
         } else if (mBinding.editUserPassword.getText().toString().length() != 8) {
-            mBinding.inputLayoutPassword.setError("Pass word must be equal to 8 character");
+            mBinding.inputLayoutPassword.setErrorEnabled(true);
+            mBinding.inputLayoutPassword.setError(getResources().getString(R.string.error_password));
         }
         else{
-            mBinding.inputLayoutPassword.setError(null);
+            mBinding.inputLayoutPassword.setErrorEnabled(false);
+          //  mBinding.inputLayoutPassword.setError(null);
         }
     }
+
 }

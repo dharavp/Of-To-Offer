@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="userRegister"
             type="com.oftooffer.Models.UserRegister" />
@@ -23,22 +22,23 @@
             android:orientation="vertical"
             android:visibility="invisible" />
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="30dp"
                     android:gravity="center_horizontal"
                     android:text="@{userRegister.userTitle}"
                     android:textSize="50sp"
@@ -63,8 +63,7 @@
                     android:id="@+id/input_layout_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    app:errorEnabled="true"
+                    app:errorEnabled="false"
                     android:textColorHint="@color/white">
 
                     <android.support.v7.widget.AppCompatEditText
@@ -73,6 +72,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/edit_name_hint"
                         android:inputType="text"
+                        android:layout_marginBottom="7dp"
                         android:text="@={userRegister.userName}"
                         android:textColor="@color/white"
                         android:theme="@style/EditTextTheme" />
@@ -83,8 +83,7 @@
                     android:id="@+id/input_layout_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    app:errorEnabled="true"
+                    app:errorEnabled="false"
                     android:textColorHint="@color/white">
 
                     <android.support.v7.widget.AppCompatEditText
@@ -93,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/edit_email_hint"
                         android:inputType="textEmailAddress"
+                        android:layout_marginBottom="7dp"
                         android:text="@={userRegister.userEmail}"
                         android:textColor="@color/white"
                         android:theme="@style/EditTextTheme" />
@@ -104,11 +104,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_password_hint"
-                    app:errorEnabled="true"
+                    app:errorEnabled="false"
                     android:textColorHint="@color/white"
                     app:counterEnabled="true"
                     app:counterMaxLength="8"
                     app:passwordToggleEnabled="true"
+                    app:counterTextAppearance="@color/white"
                     app:passwordToggleTint="@color/white">
 
                     <android.support.design.widget.TextInputEditText
@@ -128,11 +129,32 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:background="@color/colorCustomerBtnTransparent"
+                    android:background="@drawable/button_design"
                     android:text="@string/button_register_user"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"/>
             </LinearLayout>
-        </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/button_login"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorLoginBtnTransparent"
+                    android:text="@string/button_login"
+                    android:gravity="center"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="@color/white"/>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignTop="@+id/button_login"
+                    android:background="@color/divider"/>
+            </RelativeLayout>
+
+        </LinearLayout>
     </io.codetail.widget.RevealFrameLayout>
 </layout>
