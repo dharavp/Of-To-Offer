@@ -181,7 +181,7 @@ public class CustomerRegistrationFragment extends Fragment {
         }
         else {
             mBinding.inputLayoutName.setErrorEnabled(false);
-           // mBinding.inputLayoutName.setError(null);
+
         }
     }
 
@@ -196,7 +196,7 @@ public class CustomerRegistrationFragment extends Fragment {
         }
         else{
             mBinding.inputLayoutEmail.setErrorEnabled(false);
-          //  mBinding.inputLayoutEmail.setError(null);
+
         }
 
     }
@@ -211,7 +211,6 @@ public class CustomerRegistrationFragment extends Fragment {
         }
         else{
             mBinding.inputLayoutPassword.setErrorEnabled(false);
-          //  mBinding.inputLayoutPassword.setError(null);
         }
     }
 

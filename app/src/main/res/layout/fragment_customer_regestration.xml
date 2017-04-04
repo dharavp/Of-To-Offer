@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="userRegister"
             type="com.oftooffer.Models.UserRegister" />
     </data>
+
 
     <io.codetail.widget.RevealFrameLayout
         android:id="@+id/linear_layout_sign_up"
@@ -22,139 +25,151 @@
             android:orientation="vertical"
             android:visibility="invisible" />
 
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/text_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    android:gravity="center_horizontal"
-                    android:text="@{userRegister.userTitle}"
-                    android:textSize="50sp"
-                    android:textStyle="bold" />
-
-                <io.ghyeok.stickyswitch.widget.StickySwitch
-                    android:id="@+id/sticky_switch"
-                    android:layout_width="116dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    app:iconPadding="14dp"
-                    app:iconSize="22dp"
-                    app:leftText="Customer"
-                    app:rightText="Business"
-                    app:selectedTextSize="12sp"
-                    app:sliderBackgroundColor="@color/colorCustomerBtnTransparent"
-                    app:switchColor="@color/customerAccent"
-                    app:textColor="@color/white"
-                    app:textSize="12sp" />
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/input_layout_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:errorEnabled="false"
-                    android:textColorHint="@color/white">
-
-                    <android.support.v7.widget.AppCompatEditText
-                        android:id="@+id/edit_user_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/edit_name_hint"
-                        android:inputType="text"
-                        android:layout_marginBottom="7dp"
-                        android:text="@={userRegister.userName}"
-                        android:textColor="@color/white"
-                        android:theme="@style/EditTextTheme" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/input_layout_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:errorEnabled="false"
-                    android:textColorHint="@color/white">
-
-                    <android.support.v7.widget.AppCompatEditText
-                        android:id="@+id/edit_user_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/edit_email_hint"
-                        android:inputType="textEmailAddress"
-                        android:layout_marginBottom="7dp"
-                        android:text="@={userRegister.userEmail}"
-                        android:textColor="@color/white"
-                        android:theme="@style/EditTextTheme" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/input_layout_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/edit_password_hint"
-                    app:errorEnabled="false"
-                    android:textColorHint="@color/white"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="8"
-                    app:passwordToggleEnabled="true"
-                    app:counterTextAppearance="@color/white"
-                    app:passwordToggleTint="@color/white">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/edit_user_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:maxLength="8"
-                        android:text="@={userRegister.userPass}"
-                        android:textColor="@color/white"
-                        android:theme="@style/EditTextTheme" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <Button
-                    android:id="@+id/button_sign_up"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/button_design"
-                    android:text="@string/button_register_user"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/button_login"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:background="@color/colorLoginBtnTransparent"
-                    android:text="@string/button_login"
-                    android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bottom_button_height"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/text_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50dp"
+                        android:gravity="center_horizontal"
+                        android:text="@{userRegister.userTitle}"
+                        android:textSize="46sp"
+                        android:textStyle="bold"
+                        tools:text="askldjlask" />
+
+                    <io.ghyeok.stickyswitch.widget.StickySwitch
+                        android:id="@+id/sticky_switch"
+                        android:layout_width="116dp"
+                        android:layout_height="72dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="12dp"
+                        app:iconPadding="14dp"
+                        app:iconSize="22dp"
+                        app:leftText="Customer"
+                        app:rightText="Business"
+                        app:selectedTextSize="12sp"
+                        app:sliderBackgroundColor="@color/colorCustomerBtnTransparent"
+                        app:switchColor="@color/customerAccent"
+                        app:textColor="@color/white"
+                        app:textSize="12sp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        app:errorEnabled="false">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/edit_user_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="7dp"
+                            android:hint="@string/edit_name_hint"
+                            android:inputType="text"
+                            android:text="@={userRegister.userName}"
+                            android:textColor="@color/white"
+                            android:theme="@style/EditTextTheme" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        app:errorEnabled="false">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/edit_user_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="7dp"
+                            android:hint="@string/edit_email_hint"
+                            android:inputType="textEmailAddress"
+                            android:text="@={userRegister.userEmail}"
+                            android:textColor="@color/white"
+                            android:theme="@style/EditTextTheme" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_password_hint"
+                        android:textColorHint="@color/white"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="8"
+                        app:counterTextAppearance="@color/white"
+                        app:errorEnabled="false"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/white">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edit_user_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:maxLength="8"
+                            android:text="@={userRegister.userPass}"
+                            android:textColor="@color/white"
+                            android:theme="@style/EditTextTheme" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/button_sign_up"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/button_design"
+                        android:text="@string/button_register_user"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical">
 
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignTop="@+id/button_login"
-                    android:background="@color/divider"/>
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider" />
+
+                    <TextView
+                        android:id="@+id/button_login"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/bottom_button_height"
+                        android:background="@color/colorLoginBtnTransparent"
+                        android:gravity="center"
+                        android:text="@string/button_login"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
             </RelativeLayout>
+        </ScrollView>
 
-        </LinearLayout>
+
     </io.codetail.widget.RevealFrameLayout>
 </layout>
