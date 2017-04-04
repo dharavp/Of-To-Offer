@@ -176,6 +176,7 @@
                         android:layout_height="@dimen/bottom_button_height"
                         android:background="@color/colorLoginBtnTransparent"
                         android:gravity="center"
+                        android:onClick="@{(view)->userRegister.onRegisterClick(view,false)}"
                         android:text="@string/button_login"
                         android:textColor="@color/white"
                         android:visibility="@{userRegister.signUp ? View.VISIBLE : View.GONE}" />
@@ -186,6 +187,7 @@
                         android:layout_height="@dimen/bottom_button_height"
                         android:background="@color/colorLoginBtnTransparent"
                         android:gravity="center"
+                        android:onClick="@{(view)->userRegister.onRegisterClick(view,true)}"
                         android:text="@string/button_register"
                         android:textColor="@color/white"
                         android:visibility="@{userRegister.signUp ? View.GONE : View.VISIBLE}" />

@@ -2,6 +2,7 @@ package com.oftooffer.Models;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.view.View;
 
 import com.oftooffer.BR;
 
@@ -67,5 +68,8 @@ public class UserRegister extends BaseObservable {
         notifyPropertyChanged(BR.signUp);
     }
 
+    public void onRegisterClick(View view, Boolean isSignUp) {
+        setSignUp(isSignUp);
+    }
 
 }

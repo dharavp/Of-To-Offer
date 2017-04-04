@@ -74,18 +74,6 @@ public class CustomerRegistrationFragment extends Fragment {
                 checkValidPassword();
             }
         });
-        mBinding.textLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                userRegister.setSignUp(false);
-            }
-        });
-        mBinding.textSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                userRegister.setSignUp(true);
-            }
-        });
 
         mBinding.editUserName.addTextChangedListener(new TextWatcher() {
             @Override
