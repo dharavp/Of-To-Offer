@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data class="CustomerBinding">
+
+        <import type="android.view.View" />
 
         <variable
             name="userRegister"
@@ -74,6 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
+                        android:visibility="@{userRegister.signUp ? View.VISIBLE : View.GONE}"
                         app:errorEnabled="false">
 
                         <android.support.v7.widget.AppCompatEditText
@@ -141,8 +144,18 @@
                         android:layout_marginTop="30dp"
                         android:background="@drawable/button_design"
                         android:text="@string/button_register_user"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:visibility="@{userRegister.signUp ? View.VISIBLE : View.GONE}" />
 
+                    <Button
+                        android:id="@+id/btn_sign_in"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/button_design"
+                        android:text="@string/button_login_user"
+                        android:textColor="@android:color/white"
+                        android:visibility="@{userRegister.signUp ? View.GONE : View.VISIBLE}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -158,13 +171,24 @@
                         android:background="@color/divider" />
 
                     <TextView
-                        android:id="@+id/button_login"
+                        android:id="@+id/text_login"
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/bottom_button_height"
                         android:background="@color/colorLoginBtnTransparent"
                         android:gravity="center"
                         android:text="@string/button_login"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:visibility="@{userRegister.signUp ? View.VISIBLE : View.GONE}" />
+
+                    <TextView
+                        android:id="@+id/text_sign_up"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/bottom_button_height"
+                        android:background="@color/colorLoginBtnTransparent"
+                        android:gravity="center"
+                        android:text="@string/button_register"
+                        android:textColor="@color/white"
+                        android:visibility="@{userRegister.signUp ? View.GONE : View.VISIBLE}" />
 
                 </LinearLayout>
             </RelativeLayout>

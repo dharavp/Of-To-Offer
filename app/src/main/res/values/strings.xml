@@ -5,7 +5,9 @@
     <string name="edit_email_hint">Email</string>
     <string name="edit_password_hint">Password</string>
     <string name="button_register_user">CREATE ACCOUNT</string>
+    <string name="button_login_user">Log In</string>
     <string name="button_login">Already have an account? Log in.</string>
+    <string name="button_register">You Do not have an account? Sign up.</string>
     
     <string name="error_enter_name">Enter USer Name</string>
     <string name="error_enter_email">Enter Email</string>

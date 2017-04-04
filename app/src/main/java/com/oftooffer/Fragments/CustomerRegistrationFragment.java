@@ -15,10 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+
 import com.oftooffer.Models.UserRegister;
 import com.oftooffer.R;
-import com.oftooffer.databinding.FragmentCustomerRegestrationBinding;
+import com.oftooffer.databinding.CustomerBinding;
+
 import org.jetbrains.annotations.NotNull;
+
 import io.codetail.animation.ViewAnimationUtils;
 import io.ghyeok.stickyswitch.widget.StickySwitch;
 
@@ -29,7 +32,7 @@ import io.ghyeok.stickyswitch.widget.StickySwitch;
 public class CustomerRegistrationFragment extends Fragment {
 
     private UserRegister userRegister;
-    FragmentCustomerRegestrationBinding mBinding;
+    CustomerBinding mBinding;
 
     public CustomerRegistrationFragment() {
     }
@@ -40,6 +43,7 @@ public class CustomerRegistrationFragment extends Fragment {
 
         userRegister = new UserRegister();
         userRegister.setUserTitle("Of To Offer");
+        userRegister.setSignUp(true);
         mBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_customer_regestration, container, false);
         mBinding.setUserRegister(userRegister);
@@ -70,6 +74,18 @@ public class CustomerRegistrationFragment extends Fragment {
                 checkValidPassword();
             }
         });
+        mBinding.textLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userRegister.setSignUp(false);
+            }
+        });
+        mBinding.textSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userRegister.setSignUp(true);
+            }
+        });
 
         mBinding.editUserName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -79,10 +95,10 @@ public class CustomerRegistrationFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if(s.length()>0) {
+                if (s.length() > 0) {
 
-                        mBinding.inputLayoutName.setErrorEnabled(false);
-                    }
+                    mBinding.inputLayoutName.setErrorEnabled(false);
+                }
             }
 
             @Override
@@ -98,7 +114,7 @@ public class CustomerRegistrationFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>0) {
+                if (s.length() > 0) {
                     mBinding.inputLayoutEmail.setErrorEnabled(false);
                 }
             }
@@ -117,7 +133,7 @@ public class CustomerRegistrationFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>0) {
+                if (s.length() > 0) {
 
                     mBinding.inputLayoutPassword.setErrorEnabled(false);
                 }
@@ -178,8 +194,7 @@ public class CustomerRegistrationFragment extends Fragment {
         } else if (mBinding.editUserName.getText().length() >= 10) {
             mBinding.inputLayoutName.setErrorEnabled(true);
             mBinding.inputLayoutName.setError(getResources().getString(R.string.error_name));
-        }
-        else {
+        } else {
             mBinding.inputLayoutName.setErrorEnabled(false);
 
         }
@@ -193,8 +208,7 @@ public class CustomerRegistrationFragment extends Fragment {
         } else if (!Patterns.EMAIL_ADDRESS.matcher(mBinding.editUserEmail.getText().toString()).matches()) {
             mBinding.inputLayoutEmail.setErrorEnabled(true);
             mBinding.inputLayoutEmail.setError(getResources().getString(R.string.error_email));
-        }
-        else{
+        } else {
             mBinding.inputLayoutEmail.setErrorEnabled(false);
 
         }
@@ -208,8 +222,7 @@ public class CustomerRegistrationFragment extends Fragment {
         } else if (mBinding.editUserPassword.getText().toString().length() != 8) {
             mBinding.inputLayoutPassword.setErrorEnabled(true);
             mBinding.inputLayoutPassword.setError(getResources().getString(R.string.error_password));
-        }
-        else{
+        } else {
             mBinding.inputLayoutPassword.setErrorEnabled(false);
         }
     }
