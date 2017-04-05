@@ -118,4 +118,3 @@ public class CustomerRegistrationFragment extends Fragment implements UserRegist
 
     }
 }
-
