@@ -4,15 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="CustomerBinding">
-
         <import type="android.view.View" />
-
         <variable
             name="userRegister"
             type="com.oftooffer.Models.UserRegister" />
     </data>
-
-
     <io.codetail.widget.RevealFrameLayout
         android:id="@+id/linear_layout_sign_up"
         android:layout_width="match_parent"
@@ -50,10 +46,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="50dp"
                         android:gravity="center_horizontal"
-                        android:text="@{userRegister.userTitle}"
+                        android:text="Of To Offer"
                         android:textSize="46sp"
-                        android:textStyle="bold"
-                        tools:text="askldjlask" />
+                        android:textStyle="bold" />
 
                     <io.ghyeok.stickyswitch.widget.StickySwitch
                         android:id="@+id/sticky_switch"
@@ -77,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
                         android:visibility="@{userRegister.signUp ? View.VISIBLE : View.GONE}"
-                        app:errorEnabled="false">
+                        app:errorEnabled="@{userRegister.nameError.length() > 0}">
 
                         <android.support.v7.widget.AppCompatEditText
                             android:id="@+id/edit_user_name"
@@ -97,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/white"
-                        app:errorEnabled="false">
+                        app:errorEnabled="@{userRegister.emailError.length()>0}">
 
                         <android.support.v7.widget.AppCompatEditText
                             android:id="@+id/edit_user_email"
@@ -121,7 +116,7 @@
                         app:counterEnabled="true"
                         app:counterMaxLength="8"
                         app:counterTextAppearance="@color/white"
-                        app:errorEnabled="false"
+                        app:errorEnabled="@{userRegister.passwordError.length()>0}"
                         app:passwordToggleEnabled="true"
                         app:passwordToggleTint="@color/white">
 
@@ -143,6 +138,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:background="@drawable/button_design"
+                        android:onClick="@{userRegister.onRegister}"
                         android:text="@string/button_register_user"
                         android:textColor="@android:color/white"
                         android:visibility="@{userRegister.signUp ? View.VISIBLE : View.GONE}" />
@@ -155,6 +151,7 @@
                         android:background="@drawable/button_design"
                         android:text="@string/button_login_user"
                         android:textColor="@android:color/white"
+                        android:onClick="@{userRegister.onLogin}"
                         android:visibility="@{userRegister.signUp ? View.GONE : View.VISIBLE}" />
                 </LinearLayout>
 
@@ -191,11 +188,8 @@
                         android:text="@string/button_register"
                         android:textColor="@color/white"
                         android:visibility="@{userRegister.signUp ? View.GONE : View.VISIBLE}" />
-
                 </LinearLayout>
             </RelativeLayout>
         </ScrollView>
-
-
     </io.codetail.widget.RevealFrameLayout>
 </layout>
