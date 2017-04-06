@@ -158,7 +158,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
-                        android:text="Forgot Password?"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/text_forgot_password"
+                        android:layout_gravity="end"
                         android:visibility="@{userRegister.signUp ? View.GONE : View.VISIBLE}"/>
                 </LinearLayout>
 

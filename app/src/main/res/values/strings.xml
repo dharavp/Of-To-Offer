@@ -8,6 +8,8 @@
     <string name="button_login_user">Log In</string>
     <string name="button_login">Already have an account? Log in.</string>
     <string name="button_register">You Do not have an account? Sign up.</string>
+    <string name="text_forgot_password">Forgot Password?</string>
+    <string name="text_register_email">Enter Your Registered Email?</string>
     
     <string name="error_enter_name">Enter USer Name</string>
     <string name="error_enter_email">Enter Email</string>

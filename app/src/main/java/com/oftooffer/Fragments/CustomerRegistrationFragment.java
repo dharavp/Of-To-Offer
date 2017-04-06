@@ -2,12 +2,15 @@ package com.oftooffer.Fragments;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +66,12 @@ public class CustomerRegistrationFragment extends Fragment implements UserRegist
                 }
             }
         });
+        mBinding.textForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showForgotPasswordDialog();
+            }
+        });
         return view;
     }
 
@@ -116,5 +125,27 @@ public class CustomerRegistrationFragment extends Fragment implements UserRegist
     @Override
     public void login(String email, String password) {
 
+    }
+    public void showForgotPasswordDialog(){
+        AlertDialog.Builder builder ;
+        builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = (getActivity()).getLayoutInflater();
+        View v = inflater.inflate(R.layout.dialog_forgot_password, null);
+        builder.setView(v);
+        builder
+                .setTitle(R.string.text_forgot_password)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder.create();
+        alert11.show();
     }
 }
